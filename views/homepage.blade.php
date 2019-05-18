@@ -1,9 +1,10 @@
 @extends('layouts.marketing')
 
 @section('content')
+    <h1>Kyle Parisi <span class="f4 fw3 v-mid">- Mechanical engineer turned software developer</span></h1>
     <div class="cf">
         <div class="fl w-third">
-            <div class="pb3">Blog Posts...</div>
+            <div class="pb3 underline">Blog Posts</div>
 
             <div class="georgia">
                 @foreach($posts as $post)
@@ -14,30 +15,30 @@
             </div>
         </div>
         <div class="fl w-third">
-            <div class="lh-title tracked">Social</div>
+            <div class="lh-title tracked underline pb3">Social</div>
 
             <div class="georgia">
                 <a class="link" href="https://twitter.com/kyleparisi">
-                    <div class="">Twitter</div>
+                    <div class="pb2">Twitter</div>
                 </a>
                 <a class="link" href="https://github.com/kyleparisi">
-                    <div class="">Github</div>
+                    <div class="pb2">Github</div>
                 </a>
                 <a class="link" href="https://www.linkedin.com/in/kyleparisi">
-                    <div class="">Linkedin</div>
+                    <div class="pb2">Linkedin</div>
                 </a>
             </div>
 
-            <div class="pt4 lh-title tracked">Life Missions</div>
+            <div class="pt4 lh-title tracked underline pb3">Life Missions</div>
 
             <div class="georgia">
                 <a class="link" href="https://buildapart.io">
-                    <div class="">Buildapart</div>
+                    <div class="pb2">Buildapart</div>
                 </a>
                 <a class="link" href="https://fluxion.app">
-                    <div class="">Fluxion</div>
+                    <div class="pb2">Fluxion</div>
                 </a>
-                <div class="">Energy...</div>
+                <div class="pb2">Energy...</div>
             </div>
         </div>
     </div>
