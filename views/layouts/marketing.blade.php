@@ -4,12 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Kyle Parisi's blog">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="">
-
-    <title></title>
+    <title>Kyle Parisi</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/tachyons.min.css">
@@ -29,18 +26,6 @@
     <script src="/js/lolight.min.js"></script>
 </head>
 <body>
-    <div class="absolute top-0 left-0 bg-dark-blue w-100" style="height: 0.5rem"></div>
-
-    <nav class="w-80 pt5 center cf">
-        <div class="fl w-third-l tl-l w-100">
-            <div class="br2 ba bg-dark-blue dib w2 h2 fl mv2"></div>
-            <div class="dib pa2 lh-title gray fw6 f3" style="line-height: 2rem;">App</div>
-        </div>
-        <div class="fl w-two-thirds-l w-100 tr tracked" style="line-height: 2rem;">
-            <a href="/login"><div class="dib pa2 mr4 dim pointer">Sign In</div></a>
-            <a href="/sign-up" class="link"><div class="dib pa2 ba br2 dim pointer">Get Started</div></a>
-        </div>
-    </nav>
 
     <div class="min-vh-100">
         @yield('content')
