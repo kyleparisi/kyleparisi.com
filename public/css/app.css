@@ -81,3 +81,7 @@ pre {
     overflow: auto;
     padding: .5em .8em;
 }
+
+.w-95 {
+    width: 95%;
+}

@@ -28,7 +28,9 @@
 <body>
 
     <div class="min-vh-100">
-        @yield('content')
+        <div class="w-80 pt5 center">
+            @yield('content')
+        </div>
     </div>
 
     @include('includes.footer')

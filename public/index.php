@@ -176,7 +176,8 @@ try {
         'GET',
         '/',
         function () use ($log, $blade) {
-            return $blade->make('homepage');
+            $posts = R::findAll("post", "order by `id` DESC");
+            return $blade->make('homepage', compact('posts'));
         },
         'home'
     );
@@ -468,14 +469,13 @@ try {
 
     $router->map('GET', '/blog/[*:title]', function ($path) use ($log, $blade) {
         $ParseDown = new Parsedown();
-        $user = $_SESSION['user'] ?? false;
         /** @var Post $post */
-        $post = R::findOne("post", "slug = ?", [urldecode($path->title)]);
+        $post = R::findOne("post", "slug = ?", [urldecode($path)]);
         if (!$post) {
             redirect("Location: /blog");
         }
         $post->content = $ParseDown->text($post->content);
-        return $blade->make('blog-page', compact('post', 'user'));
+        return $blade->make('blog-page', compact('post'));
     });
 
     $router->map(

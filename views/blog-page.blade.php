@@ -1,10 +1,8 @@
-@extends('layouts.blog')
+@extends('layouts.marketing')
 
 @section('content')
-    @include('includes.blog-nav')
-
     <div class="w-80 fw6 lh-title center sans-serif">
-        <a href="/blog" class="link black">< Blog</a>
+        <a href="/" class="link black">< Home</a>
     </div>
 
     <div class="f3 pv4 fw6 measure tc lh-title center sans-serif">
@@ -12,7 +10,7 @@
     </div>
 
     <div class="f4 measure tc lh-title center h3 sans-serif">
-        {{ $post->author->name }} - {{ $post->date }}
+        {{ $post->date }}
     </div>
 
     <article>
