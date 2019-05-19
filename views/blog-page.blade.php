@@ -25,4 +25,10 @@
             <iframe src="/newsletter/subscribe" class="bn w-100 h5"></iframe>
         </div>
     </div>
+
+    <script>
+      $(function () {
+        lolight('pre');
+      });
+    </script>
 @endsection
