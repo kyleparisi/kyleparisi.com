@@ -24,6 +24,7 @@
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/autosize.min.js"></script>
     <script src="/js/lolight.min.js"></script>
+    <script src="/js/intense.min.js"></script>
 </head>
 <body>
 

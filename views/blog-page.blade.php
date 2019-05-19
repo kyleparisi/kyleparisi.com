@@ -29,6 +29,8 @@
     <script>
       $(function () {
         lolight('pre');
+        const images = document.querySelectorAll('img');
+        Intense(images);
       });
     </script>
 @endsection
