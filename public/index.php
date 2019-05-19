@@ -470,7 +470,7 @@ try {
 
     $router->map('GET', '/blog/[*:title]/edit', isAdmin(function ($path) use ($log, $blade) {
         /** @var Post $post */
-        $post = R::findOne("post", "slug = ?", [urldecode($path)]);
+        $post = R::findOne("post", "slug = ?", [urldecode($path->title)]);
         if (!$post) {
             redirect("Location: /blog");
         }

@@ -7,6 +7,7 @@
             <div class="w-80 f4 lh-copy center pt5">
                 <div class="pb3">
                     <input type="text" title="title" name="title" placeholder="Title"
+                           value="{{ $post->title ?? "" }}"
                            class="input-reset ba b--black-30 pa2 b0 w-100">
                 </div>
                 <input id="x" type="hidden" name="content">
