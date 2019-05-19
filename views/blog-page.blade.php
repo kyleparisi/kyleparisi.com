@@ -19,7 +19,7 @@
         </div>
     </article>
 
-    <div class="w-80 center">
+    <div class="w-80-l w-95 center">
         <div class="lh-title center" style="max-width: 700px; padding: 10px">Get updates</div>
         <div class="lh-title center" style="max-width: 700px; padding: 10px">
             <iframe src="/newsletter/subscribe" class="bn w-100 h5"></iframe>
