@@ -56,11 +56,12 @@ R::setAutoResolve(true);
 
 function isLoggedIn($next)
 {
-    return function () use ($next) {
+    return function ($params) use ($next) {
         if ($_SESSION['user'] ?? false) {
-            return call_user_func($next);
+            return call_user_func($next, $params);
         }
 
+        $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
         redirect("Location: /login");
         return false;
     };
@@ -68,15 +69,15 @@ function isLoggedIn($next)
 
 function isAdmin($next)
 {
-    return function () use ($next) {
+    return isLoggedIn(function ($params) use ($next) {
         if ($_SESSION['user']['role'] === 'admin' ?? false) {
-            return call_user_func($next);
+            return call_user_func($next, $params);
         }
 
         header($_SERVER["SERVER_PROTOCOL"] . ' 403 Forbidden');
         echo "Not allowed";
         exit();
-    };
+    });
 }
 
 function slugify($text)
@@ -467,10 +468,19 @@ try {
         return $blade->make('blog-list', compact('posts', 'user'));
     });
 
+    $router->map('GET', '/blog/[*:title]/edit', isAdmin(function ($path) use ($log, $blade) {
+        /** @var Post $post */
+        $post = R::findOne("post", "slug = ?", [urldecode($path)]);
+        if (!$post) {
+            redirect("Location: /blog");
+        }
+        return $blade->make('blog', compact('post'));
+    }));
+
     $router->map('GET', '/blog/[*:title]', function ($path) use ($log, $blade) {
         $ParseDown = new Parsedown();
         /** @var Post $post */
-        $post = R::findOne("post", "slug = ?", [urldecode($path)]);
+        $post = R::findOne("post", "slug = ?", [urldecode($path->title)]);
         if (!$post) {
             redirect("Location: /blog");
         }
@@ -522,9 +532,12 @@ if (PHP_SAPI === "cli") {
 
 $match = $router->match();
 if ($match && is_callable($match['target'])) {
-    $response = call_user_func_array($match['target'], $match['params']);
+    $response = call_user_func($match['target'], (object)$match['params']);
     if ($response instanceof Illuminate\View\View) {
-        if ($_SERVER['HTTP_ACCEPT'] === "application/json") {
+        if (
+            isset($_SERVER['HTTP_ACCEPT']) &&
+            strpos($_SERVER['HTTP_ACCEPT'], "application/json") !== false
+        ) {
             header('Content-Type: application/json');
             echo json_encode($response->getData());
             echo "\n";

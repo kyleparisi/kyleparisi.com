@@ -1,7 +1,6 @@
 @extends('layouts.marketing')
 
 @section('content')
-    @include('includes.blog-nav')
 
     <div style="min-height: 80vh;">
         @foreach($posts as $post)
@@ -13,6 +12,5 @@
             </a>
         @endforeach
     </div>
-
 
 @endsection

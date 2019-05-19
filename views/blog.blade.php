@@ -14,7 +14,9 @@
             <div class="flex" style="min-height: 300px">
                 <div class="pa3 w-50">
                     <label class="dn" for="content">Content</label>
-                    <textarea id="content" name="content" class="w-100 h5 pa3"></textarea>
+                    <textarea id="content" name="content" class="w-100 h5 pa3">
+                        {{ $post->content ?? "" }}
+                    </textarea>
                 </div>
                 <div class="pa3 w-50">
                     <div id="preview"></div>
