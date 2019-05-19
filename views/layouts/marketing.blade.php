@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +28,7 @@
 <body>
 
     <div class="min-vh-100">
-        <div class="w-80 pt5 center">
+        <div class="w-80-l w-90 pt5 center">
             @yield('content')
         </div>
     </div>
