@@ -3,7 +3,7 @@
 @section('content')
     <h1>Kyle Parisi <span class="f4 fw3 v-mid">- Mechanical engineer turned software developer</span></h1>
     <div class="cf">
-        <div class="fl w-third">
+        <div class="fl w-third-l">
             <div class="pb3 underline">Blog Posts</div>
 
             <div class="georgia">
@@ -14,7 +14,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="fl w-third">
+        <div class="fl w-third-l">
             <div class="lh-title tracked underline pb3">Social</div>
 
             <div class="georgia">
