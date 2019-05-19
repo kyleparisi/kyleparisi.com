@@ -477,6 +477,18 @@ try {
         return $blade->make('blog', compact('post'));
     }));
 
+    $router->map('POST', '/blog/[*:title]/edit', isAdmin(function ($path) use ($log, $blade, $body) {
+        /** @var Post $post */
+        $post = R::findOne("post", "slug = ?", [urldecode($path->title)]);
+        if (!$post) {
+            redirect("Location: /blog");
+        }
+        $post->title = $body->title;
+        $post->content = $body->content;
+        R::store($post);
+        return $blade->make('blog', compact('post'));
+    }));
+
     $router->map('GET', '/blog/[*:title]', function ($path) use ($log, $blade) {
         $ParseDown = new Parsedown();
         /** @var Post $post */
