@@ -500,6 +500,16 @@ try {
         return $blade->make('blog-page', compact('post'));
     });
 
+    $router->map('DELETE', '/blog/[*:title]', isAdmin(function ($path) use ($log, $blade) {
+        /** @var Post $post */
+        $post = R::findOne("post", "slug = ?", [urldecode($path->title)]);
+        if (!$post) {
+            redirect("Location: /blog");
+        }
+        R::trash($post);
+        return $blade->make('blog-page');
+    }));
+
     $router->map(
         'POST',
         '/blog/post',
