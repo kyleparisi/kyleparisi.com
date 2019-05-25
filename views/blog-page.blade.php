@@ -30,7 +30,7 @@
       $(function () {
         lolight('pre');
         const images = document.querySelectorAll('img');
-        Intense(images);
+        mediumZoom(images);
       });
     </script>
 @endsection
