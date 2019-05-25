@@ -524,7 +524,7 @@ try {
             $post->draft = true;
             $post->date = date("M d, Y");
             R::store($post);
-            return $blade->make('blog', ['user' => $_SESSION['user']]);
+            return $blade->make('blog');
         })
     );
 
@@ -538,6 +538,43 @@ try {
             exit();
         })
     );
+
+    $router->map(
+        'GET',
+        '/components/chat',
+        function () use ($log, $blade, &$body) {
+            $note = R::load("note", 1);
+            return $blade->make('chat', compact('note'));
+        }
+    );
+
+    $router->map(
+        'GET',
+        '/components/chat/edit',
+        isAdmin(function () use ($log, $blade, &$body) {
+            $note = R::load("note", 1);
+            return $blade->make('chat-edit', compact('note'));
+        })
+    );
+
+    $router->map(
+        'POST',
+        '/components/chat/edit',
+        isAdmin(function () use ($log, $blade, &$body) {
+            /** @var Document $post */
+            $note = R::load('note', 1);
+            $note->title = $body->title;
+            $note->slug = slugify($body->title);
+            $note->author = R::load('user', $_SESSION['user']['id']);
+            $note->content = $body->content;
+            $note->deleted = false;
+            $note->draft = true;
+            $note->date = date("M d, Y");
+            R::store($note);
+            return $blade->make('chat-edit', compact('note'));
+        })
+    );
+
 } catch (Exception $exception) {
     $log->emergency("", compact('exception'));
     header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Sever Error');

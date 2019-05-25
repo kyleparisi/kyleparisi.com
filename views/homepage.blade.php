@@ -15,7 +15,15 @@
             </div>
         </div>
         <div class="fl w-third-l">
-            <div class="lh-title tracked underline pb3">Social</div>
+            <div class="lh-title tracked underline pb3">Components</div>
+
+            <div class="georgia">
+                <a class="link" href="/components/chat">
+                    <div class="pb2">Chat</div>
+                </a>
+            </div>
+
+            <div class="pt4 lh-title tracked underline pb3">Social</div>
 
             <div class="georgia">
                 <a class="link" href="https://twitter.com/kyleparisi">
