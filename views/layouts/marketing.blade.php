@@ -25,11 +25,12 @@
     <script src="/js/autosize.min.js"></script>
     <script src="/js/lolight.min.js"></script>
     <script src="/js/medium-zoom.min.js"></script>
+    @yield('css')
 </head>
 <body>
 
     <div class="min-vh-100">
-        <div class="w-80-l w-90 pt5 center">
+        <div class="pt5">
             @yield('content')
         </div>
     </div>

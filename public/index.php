@@ -543,7 +543,9 @@ try {
         'GET',
         '/components/chat',
         function () use ($log, $blade, &$body) {
+            $parser = new Parsedown();
             $note = R::load("note", 1);
+            $note->content = $parser->text($note->content);
             return $blade->make('chat', compact('note'));
         }
     );

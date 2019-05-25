@@ -1,7 +1,10 @@
 @extends('layouts.marketing')
 
 @section('content')
-    <div class="pt3 w-75 center">
+    <div class="pt3 w-90 center">
+        <div class="pl4">
+            <a href="/components/chat">Back</a>
+        </div>
         <form method="post" style="min-height: 80vh;">
             <div class="pl4">Doc Editor</div>
             <div class="w-80 f4 lh-copy center pt5">
