@@ -33,6 +33,7 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://vue.kyleparisi.com/heffer.umd.min.js"></script>
     <script>
@@ -40,5 +41,36 @@
         lolight('pre');
         new Vue({el: "#chat"});
       });
+
+      function randomMessage() {
+        return faker.lorem.words(
+          faker.random.number({
+            min: 1,
+            max: 15
+          })
+        );
+      }
+      function fakeChat(key) {
+        return {
+          title: faker.random.words(5),
+          image_url: faker.image.imageUrl(),
+          owner: "1",
+          read: "0",
+          key,
+          users: {
+            "1": {
+              id: "1",
+              name: faker.name.findName(),
+              image_url: faker.image.imageUrl()
+            },
+            "2": {
+              id: "2",
+              name: faker.name.findName(),
+              image_url: faker.image.imageUrl()
+            }
+          },
+          messages: []
+        };
+      }
     </script>
 @endsection
