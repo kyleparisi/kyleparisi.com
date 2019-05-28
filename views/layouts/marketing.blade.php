@@ -36,7 +36,7 @@
     </div>
 
     @include('includes.footer')
-    @if(strpos(host(), "kyleparisi.com"))
+    @if(strpos(host(), "kyleparisi.com") !== false)
         @include('includes.analytics')
     @endif
 </body>
