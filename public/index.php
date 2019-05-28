@@ -172,6 +172,19 @@ function remembered()
 }
 remembered();
 
+function notCLI(): bool
+{
+    return PHP_SAPI !== "cli";
+}
+
+function host()
+{
+    if (notCLI()) {
+        return $_SERVER['HTTP_HOST'];
+    }
+    return false;
+}
+
 try {
     $router->map(
         'GET',
