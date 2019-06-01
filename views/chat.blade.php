@@ -13,15 +13,17 @@
         Chat Component
     </div>
 
-    <article class="pa3">
-        <div class="lh-copy w-50 pt2 ph2 pb5 serif" style="min-height: 80vh;">
+    <article class="cf pa3">
+        <div class="fl lh-copy w-50 pt2 ph2 pb5 serif" style="min-height: 80vh;">
             {!! $note->content ?? "" !!}
         </div>
-        <div class="fixed right-0 top-0 w-50" id="chat" style="padding-top: 178px">
-            <div class="pa3">
-              <div id="chat">
-                  <Chat></Chat>
-              </div>
+        <div class="relative fr w-50" style="min-height: 2138px">
+            <div class="sticky" id="chat">
+                <div class="pa3">
+                    <div id="chat">
+                        <Chat></Chat>
+                    </div>
+                </div>
             </div>
         </div>
     </article>
