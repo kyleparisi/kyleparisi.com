@@ -19,10 +19,8 @@
         </div>
         <div class="relative fr w-50" style="min-height: 2138px">
             <div class="sticky" id="chat">
-                <div class="pa3">
-                    <div id="chat">
-                        <Chat></Chat>
-                    </div>
+                <div class="pa3 w-100 h-100 flex" style="min-height: calc(100vh - 70px)">
+                    <iframe class="w-100 ba b--light-gray" src="/chat.html"></iframe>
                 </div>
             </div>
         </div>
