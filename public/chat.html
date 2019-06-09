@@ -10,7 +10,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/tachyons.min.css" />
-    <link rel="stylesheet" href="https://vue.kyleparisi.com/heffer.css" />
+    <link rel="stylesheet" href="https://vue.kyleparisi.com/Chat.css" />
     <style>
       @import url("https://rsms.me/inter/inter.css");
       html {
@@ -31,11 +31,48 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
     <script src="https://cdn.buildapart.io/js/axios.min.js"></script>
     <script src="https://cdn.buildapart.io/js/socket.io.js"></script>
     <script src="https://cdn.buildapart.io/js/lodash.min.js"></script>
     <script src="https://cdn.buildapart.io/js/vue.js"></script>
-    <script src="https://vue.kyleparisi.com/heffer.umd.min.js"></script>
-    <script src="/js/chat.js"></script>
+    <script src="https://vue.kyleparisi.com/Chat.js"></script>
+
+    <script>
+      $(function() {
+        new Vue({ el: "#chat" });
+      });
+
+      function randomMessage() {
+        return faker.lorem.words(
+          faker.random.number({
+            min: 1,
+            max: 15
+          })
+        );
+      }
+      function fakeChat(key) {
+        return {
+          title: faker.random.words(5),
+          image_url: faker.image.imageUrl(),
+          owner: "1",
+          read: "0",
+          key,
+          users: {
+            "1": {
+              id: "1",
+              name: faker.name.findName(),
+              image_url: faker.image.imageUrl()
+            },
+            "2": {
+              id: "2",
+              name: faker.name.findName(),
+              image_url: faker.image.imageUrl()
+            }
+          },
+          messages: []
+        };
+      }
+    </script>
   </body>
 </html>
