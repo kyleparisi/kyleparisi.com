@@ -25,6 +25,7 @@
     <script src="/js/autosize.min.js"></script>
     <script src="/js/lolight.min.js"></script>
     <script src="/js/medium-zoom.min.js"></script>
+    <script src="/js/darkmode-js.min.js"></script>
     @yield('css')
 </head>
 <body>
@@ -37,7 +38,6 @@
 
     @include('includes.footer')
 
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.3.4/lib/darkmode-js.min.js"></script>
     <script>
       new Darkmode({
         label: '🌓'
