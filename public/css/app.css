@@ -1,6 +1,10 @@
 a {
-    text-decoration: none;
     color: inherit;
+}
+
+a:hover {
+    background-color: #ffb700;
+    filter: invert(1);
 }
 
 button {
