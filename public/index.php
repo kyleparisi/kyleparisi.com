@@ -498,6 +498,7 @@ try {
         }
         $post->title = $body->title;
         $post->content = $body->content;
+        $post->draft = $body->draft;
         R::store($post);
         return $blade->make('blog', compact('post'));
     }));
@@ -534,7 +535,7 @@ try {
             $post->author = R::load('user', $_SESSION['user']['id']);
             $post->content = $body->content;
             $post->deleted = false;
-            $post->draft = true;
+            $post->draft = $body->draft;
             $post->date = date("M d, Y");
             R::store($post);
             return $blade->make('blog');

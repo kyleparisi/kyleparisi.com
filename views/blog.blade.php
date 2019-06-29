@@ -10,7 +10,6 @@
                            value="{{ $post->title ?? "" }}"
                            class="input-reset ba b--black-30 pa2 b0 w-100">
                 </div>
-                <input id="x" type="hidden" name="content">
             </div>
             <div class="flex" style="min-height: 300px">
                 <div class="pa3 w-50">
@@ -23,6 +22,11 @@
             </div>
             <div class="w-80 f4 lh-copy center pv5">
                 <div class="pv3 tr">
+                    <label for="draft">Draft</label>
+                    <select id="draft" name="draft">
+                        <option value="1" {{ $post->draft ? "selected" : "" }}>True</option>
+                        <option value="0" {{ !$post->draft ? "selected" : "" }}>False</option>
+                    </select>
                     <button class="button">Post</button>
                 </div>
             </div>
