@@ -190,7 +190,7 @@ try {
         'GET',
         '/',
         function () use ($log, $blade) {
-            $posts = R::findAll("post", "order by `id` DESC");
+            $posts = R::findAll("post", "draft = 0 order by `id` DESC");
             return $blade->make('homepage', compact('posts'));
         },
         'home'

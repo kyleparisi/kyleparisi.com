@@ -24,8 +24,8 @@
                 <div class="pv3 tr">
                     <label for="draft">Draft</label>
                     <select id="draft" name="draft">
-                        <option value="1" {{ $post->draft ? "selected" : "" }}>True</option>
-                        <option value="0" {{ !$post->draft ? "selected" : "" }}>False</option>
+                        <option value="1" {{ $post->draft ?? false ? "selected" : "" }}>True</option>
+                        <option value="0" {{ $post->draft ?? false ? "" : "selected" }}>False</option>
                     </select>
                     <button class="button">Post</button>
                 </div>
