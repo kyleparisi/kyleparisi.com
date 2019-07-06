@@ -42,6 +42,7 @@
       new Darkmode({
         label: '🌓'
       }).showWidget();
+      lolight('pre');
     </script>
 </body>
 </html>

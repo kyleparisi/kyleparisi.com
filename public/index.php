@@ -591,6 +591,44 @@ try {
         })
     );
 
+    $router->map(
+        'GET',
+        '/components/table',
+        function () use ($log, $blade, &$body) {
+            $parser = new Parsedown();
+            $note = R::load("note", 2);
+            $note->content = $parser->text($note->content);
+            return $blade->make('table', compact('note'));
+        }
+    );
+
+    $router->map(
+        'GET',
+        '/components/table/edit',
+        isAdmin(function () use ($log, $blade, &$body) {
+            $note = R::load("note", 2);
+            return $blade->make('table-edit', compact('note'));
+        })
+    );
+
+    $router->map(
+        'POST',
+        '/components/table/edit',
+        isAdmin(function () use ($log, $blade, &$body) {
+            /** @var Document $post */
+            $note = R::load('note', 2);
+            $note->title = $body->title;
+            $note->slug = slugify($body->title);
+            $note->author = R::load('user', $_SESSION['user']['id']);
+            $note->content = $body->content;
+            $note->deleted = false;
+            $note->draft = true;
+            $note->date = date("M d, Y");
+            R::store($note);
+            return $blade->make('table-edit', compact('note'));
+        })
+    );
+
 } catch (Exception $exception) {
     $log->emergency("", compact('exception'));
     header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Sever Error');

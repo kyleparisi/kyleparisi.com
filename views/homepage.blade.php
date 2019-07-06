@@ -24,6 +24,12 @@
                     </a>
                 </div>
 
+                <div class="georgia">
+                    <a class="link" href="/components/table">
+                        <div class="pb2">Table</div>
+                    </a>
+                </div>
+
                 <div class="pt4 lh-title tracked underline pb3">Social</div>
 
                 <div class="georgia">
