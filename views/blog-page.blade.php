@@ -36,3 +36,19 @@
       });
     </script>
 @endsection
+
+@section("css")
+    <style>
+        p {
+            line-height: 1.5rem;
+        }
+        code {
+            font-family: Menlo,monospace;
+            font-size: .875rem;
+            padding: 0 6px;
+            border: 1px solid #d6e0ef;
+            background: #f2f6fa;
+            border-radius: 5px;
+        }
+    </style>
+@endsection
