@@ -9,7 +9,7 @@
 
                 <div class="georgia">
                     @foreach($posts as $post)
-                        <a class="link" href="/blog/{{ $post->slug }}">
+                        <a class="link hover-gray" href="/blog/{{ $post->slug }}">
                             <div class="pb3">{{ $post->title }}</div>
                         </a>
                     @endforeach

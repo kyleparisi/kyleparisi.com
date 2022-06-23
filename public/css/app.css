@@ -4,7 +4,7 @@ a {
 
 a:hover {
     background-color: #ffb700;
-    filter: invert(1);
+    /*filter: invert(1);*/
 }
 
 button {
